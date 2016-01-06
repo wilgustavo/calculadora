@@ -1,14 +1,19 @@
 /*jslint node:true*/
 'use strict';
 
-var calc = {};
+var calc = {},
+    display = 0;
 
 calc.reset = function () {
-
+    display = 0;
 };
 
 calc.getDisplay = function () {
-    return 0;
+    return display;
+};
+
+calc.setDigito = function (valor) {
+    display = valor;
 };
 
 module.exports = calc;

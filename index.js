@@ -3,8 +3,12 @@
 
 var calc = {};
 
-calc.prueba = function () {
-    return 'Hola dummy';
+calc.reset = function () {
+
+};
+
+calc.getDisplay = function () {
+    return 0;
 };
 
 module.exports = calc;

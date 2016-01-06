@@ -3,8 +3,10 @@
 'use strict';
 
 var calc = require('../index');
-describe("Prueba de modulo y jasmine", function () {
-    it("Contine llamada a un metodo de prueba", function () {
-        expect(calc.prueba()).toBe('Hola dummy');
+
+describe("Reset", function () {
+    it("Se debe mostrar cero cuando aplico reset", function () {
+        calc.reset();
+        expect(calc.getDisplay()).toBe(0);
     });
 });

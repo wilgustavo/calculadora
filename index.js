@@ -2,18 +2,18 @@
 'use strict';
 
 var calc = {},
-    display = 0;
+    display = '';
 
 calc.reset = function () {
-    display = 0;
+    display = '';
 };
 
 calc.getDisplay = function () {
-    return display;
+    return Number(display);
 };
 
 calc.setDigito = function (valor) {
-    display = valor;
+    display += valor;
 };
 
 module.exports = calc;

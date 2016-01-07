@@ -47,3 +47,41 @@ describe("Ingresar dos dígitos", function () {
         expect(calc.getDisplay()).toBe(1);
     });
 });
+
+describe("Punto decimal", function () {
+    it("Si ingreso punto se debe mostrar 0", function () {
+        calc.reset();
+        calc.setPunto();
+        expect(calc.getDisplay()).toBe(0);
+    });
+
+    it("Si ingreso 1 punto 1 se debe mostrar 1.1", function () {
+        calc.reset();
+        calc.setDigito(1);
+        calc.setPunto();
+        calc.setDigito(1);
+        expect(calc.getDisplay()).toBe(1.1);
+    });
+
+    it("Si ingreso punto 1 se debe mostrar 0.1", function () {
+        calc.reset();
+        calc.setPunto();
+        calc.setDigito(1);
+        expect(calc.getDisplay()).toBe(0.1);
+    });
+
+    it("Si ingreso punto 0 y 1 se debe mostrar 0.01", function () {
+        calc.reset();
+        calc.setPunto();
+        calc.setDigito(0);
+        calc.setDigito(1);
+        expect(calc.getDisplay()).toBe(0.01);
+    });
+
+    it("Si ingreso punto punto se debe mostrar 0", function () {
+        calc.reset();
+        calc.setPunto();
+        calc.setPunto();
+        expect(calc.getDisplay()).toBe(0);
+    });
+});

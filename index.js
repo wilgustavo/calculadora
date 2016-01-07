@@ -16,4 +16,12 @@ calc.setDigito = function (valor) {
     display += valor;
 };
 
+calc.setPunto = function () {
+    if (display.length === 0) {
+        display = '0.';
+    } else if (display.indexOf('.') < 0) {
+        display += '.';
+    }
+};
+
 module.exports = calc;

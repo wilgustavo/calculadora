@@ -85,3 +85,39 @@ describe("Punto decimal", function () {
         expect(calc.getDisplay()).toBe(0);
     });
 });
+
+describe("Igual.", function () {
+    it("Si ingreso igual se debe mostrar cero.", function () {
+        calc.reset();
+        calc.setIgual();
+        expect(calc.getDisplay()).toBe(0);
+    });
+
+    it("Si ingreso 9 igual se debe mostrar 9.", function () {
+        calc.reset();
+        calc.setDigito(9);
+        calc.setIgual();
+        expect(calc.getDisplay()).toBe(9);
+    });
+
+    it("Si ingreso 9, 1, =, 6 se debe mostrar 6.", function () {
+        calc.reset();
+        calc.setDigito(9);
+        calc.setDigito(1);
+        calc.setIgual();
+        calc.setDigito(6);
+        expect(calc.getDisplay()).toBe(6);
+    });
+
+    it("Si ingreso 710.2== se debe mostrar 710.2.", function () {
+        calc.reset();
+        calc.setDigito(7);
+        calc.setDigito(1);
+        calc.setDigito(0);
+        calc.setPunto();
+        calc.setDigito(2);
+        calc.setIgual();
+        calc.setIgual();
+        expect(calc.getDisplay()).toBe(710.2);
+    });
+});

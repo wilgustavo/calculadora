@@ -2,10 +2,12 @@
 'use strict';
 
 var calc = {},
-    display = '';
+    display = '',
+    operando = '';
 
 calc.reset = function () {
     display = '';
+    operando = '';
 };
 
 calc.getDisplay = function () {
@@ -13,15 +15,21 @@ calc.getDisplay = function () {
 };
 
 calc.setDigito = function (valor) {
-    display += valor;
+    operando += valor;
+    display = operando;
 };
 
 calc.setPunto = function () {
-    if (display.length === 0) {
-        display = '0.';
+    if (operando.length === 0) {
+        operando = '0.';
     } else if (display.indexOf('.') < 0) {
-        display += '.';
+        operando += '.';
     }
+    display = operando;
+};
+
+calc.setIgual = function () {
+    operando = '';
 };
 
 module.exports = calc;

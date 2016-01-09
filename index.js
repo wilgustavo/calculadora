@@ -3,11 +3,15 @@
 
 var calc = {},
     display = '',
-    operando = '';
+    operando = '',
+    acumulado = 0,
+    prev = '';
 
 calc.reset = function () {
     display = '';
     operando = '';
+    acumulado = 0;
+    prev = '';
 };
 
 calc.getDisplay = function () {
@@ -17,6 +21,7 @@ calc.getDisplay = function () {
 calc.setDigito = function (valor) {
     operando += valor;
     display = operando;
+    prev = valor.toString();
 };
 
 calc.setPunto = function () {
@@ -26,10 +31,23 @@ calc.setPunto = function () {
         operando += '.';
     }
     display = operando;
+    prev = '.';
 };
 
 calc.setIgual = function () {
+    if (prev === '=') {
+        return;
+    }
     operando = '';
+    acumulado += Number(display);
+    display = acumulado.toString();
+    prev = '=';
+};
+
+calc.setSuma = function () {
+    acumulado += Number(display);
+    operando = '';
+    prev = '+';
 };
 
 module.exports = calc;

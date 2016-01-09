@@ -126,3 +126,39 @@ describe("Igual.", function () {
         expect(calc.getDisplay()).toBe(710.2);
     });
 });
+
+describe("Suma.", function () {
+    beforeEach(function () {
+        calc.reset();
+    });
+
+    it("Si ingreso mas se debe mostrar 0.", function () {
+        calc.setSuma();
+        expect(calc.getDisplay()).toBe(0);
+    });
+
+    it("Si ingreso 231+ se debe mostrar 231.", function () {
+        calc.setDigito(2);
+        calc.setDigito(3);
+        calc.setDigito(1);
+        calc.setSuma();
+        expect(calc.getDisplay()).toBe(231);
+    });
+
+    it("Si ingreso 45+2 se debe mostrar 2.", function () {
+        calc.setDigito(4);
+        calc.setDigito(5);
+        calc.setSuma();
+        calc.setDigito(2);
+        expect(calc.getDisplay()).toBe(2);
+    });
+
+    it("Si ingreso 1+1= se debe mostrar 2.", function () {
+        calc.setDigito(1);
+        calc.setSuma();
+        calc.setDigito(1);
+        calc.setIgual();
+        expect(calc.getDisplay()).toBe(2);
+    });
+
+});
